@@ -26,7 +26,7 @@ function App() {
     const todo = newTodos.find((todo) => todo.id === id);
 
     todo.completed = !todo.completed;
-    
+
     setTodos(newTodos);
   };
 
@@ -37,7 +37,7 @@ function App() {
       <input type="text" ref={todoNameRef}/>
       <button onClick={handleAddTodo}>タスクの追加</button>
       <button>完了したタスクの削除</button>
-      <div>残りのタスク数: 0</div>
+      <div>残りのタスク数: {todos.filter((todo) => !todo.completed).length}</div>
     </div>
   );
 }
