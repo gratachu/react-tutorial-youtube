@@ -1,12 +1,19 @@
 import React from 'react'
 
-const Todo = ({ todo }) => {
+
+const Todo = ({ todo, toggleTodo }) => {
+  const handleTodoClick = () => {
+    toggleTodo(todo.id);
+  };
+
   return (
     <div>
-        <label>
-            <input type="checkbox" checked={todo.completed} readOnly />
-        </label>
-        {todo.name}</div>
+      <label>
+          {/* onChangeの中で直接toggleTodoを呼び出すのではなく、関数コンポーネントを定義する */}
+          <input type="checkbox" checked={todo.completed} readOnly onChange={handleTodoClick} />
+      </label>
+      {todo.name}
+    </div>
   )
 }
 
