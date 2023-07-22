@@ -3,10 +3,7 @@ import uuid4 from "uuid4";
 import TodoList from "./TodoList";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {id: uuid4(), name: "Todo1", completed: false}, 
-    {id: uuid4(), name: "Todo2", completed: true}
-  ]);
+  const [todos, setTodos] = useState([]);
 
   const todoNameRef = useRef();
 
