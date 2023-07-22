@@ -27,13 +27,21 @@ function App() {
     setTodos(newTodos);
   };
 
+  const handleClear = () => {
+    // completedがfalseのものだけを抽出して、新しい配列を作成している
+    // 考え方: 終わったタスクを減らすのではなく終わっていないタスクを残すイメージ
+    const newTodos = todos.filter((todo) => !todo.completed);
+
+    setTodos(newTodos);
+  };
+
   return (
     <div>
       {/* todos という名前でTodoListというコンポーネントへ渡すという記述になる */}
       <TodoList todos={todos} toggleTodo={toggleTodo}/>
       <input type="text" ref={todoNameRef}/>
       <button onClick={handleAddTodo}>タスクの追加</button>
-      <button>完了したタスクの削除</button>
+      <button onClick={handleClear}>完了したタスクの削除</button>
       <div>残りのタスク数: {todos.filter((todo) => !todo.completed).length}</div>
     </div>
   );
